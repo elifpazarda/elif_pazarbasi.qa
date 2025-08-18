@@ -38,15 +38,5 @@ public class InsiderQATest extends BaseTest{
         jobApplicationPage.checkJobTitleMatch("Software Quality Assurance Engineer");
     }
 
-//    @Test(description = "dsgf")
-//    public void dummyTest() {
-//        CareersPage careersPage = homePage.goToCareersPage();
-//        careersPage
-//                .waitForCareersPageLoad2()
-//                .checkLocationsTeamsLifeAtInsiderSectionsVisible2();
-////
-////        QualityAssurancePage qaTeamPage = careersPage.goToQaTeamPage();
-//        System.out.println("This is a dummy test method.");
-//    }
 }
 
