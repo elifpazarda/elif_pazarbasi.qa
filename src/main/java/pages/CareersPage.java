@@ -33,12 +33,6 @@ public class CareersPage extends BasePage {
         waitForElementToBeVisible(teamsSection);
         return this;
     }
-    public CareersPage waitForCareersPageLoad2(){
-        waitForElementToBeVisible(locationsSection);
-        waitForElementToBeVisible(lifeAtInsiderSection);
-        waitForElementToBeVisible(teamsSection);
-        return this;
-    }
 
     public CareersPage checkLocationsTeamsLifeAtInsiderSectionsVisible(){
         verifyTeamsSectionVisible();
@@ -46,14 +40,6 @@ public class CareersPage extends BasePage {
         verifyLocationSectionVisible();
         return this;
     }
-
-    public CareersPage checkLocationsTeamsLifeAtInsiderSectionsVisible2(){
-        verifyTeamsSectionVisible();
-        verifyLifeAtInsiderSectionVisible();
-        verifyLocationSectionVisible();
-        return this;
-    }
-
 
     void verifyLocationSectionVisible(){
         Assert.assertTrue(isElementVisible(locationsSection),"Locations section is not visible");

@@ -33,7 +33,6 @@ public class HomePage extends BasePage {
         driver.get(homePageUrl);
     }
 
-
     @Step("Click Accept-Cookies-Button")
     public void clickAcceptCookie() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(clickAcceptCookies)).click();

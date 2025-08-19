@@ -49,18 +49,20 @@ public class JobListPage extends BasePage {
     List<WebElement> qaJobListingItems;
 
 
-    public void waitJobListPageLoaded(){
+    public JobListPage waitJobListPageLoaded(){
         waitForElementToBeVisible(filterSection);
         waitForElementToBeVisible(jobListSection);
         waitForElementToBeVisible(pageHeadSection);
+        return this;
     }
 
     @Step("Filter QA Jobs")
-    public void filterQaJobs(){
+    public JobListPage filterQaJobs(){
         selectLocationFilter();
         selectDepartmentFilter();
         waitForElementsToBeVisible(qaJobListingItems);
         screenshot();
+        return this;
     }
 
     @Step("Select location filter")
@@ -86,13 +88,15 @@ public class JobListPage extends BasePage {
     }
 
     @Step("Verify '{expected}' department selected")
-    public void verifyDepartmentSelected(String expected){
+    public JobListPage verifyDepartmentSelected(String expected){
         assertEqualsText(filterByDepartmentDropdown.getAttribute("textContent").replace("×", "").trim(),expected,"Department text does not match expected value!");
+        return this;
     }
 
     @Step("Verify '{expected}' location selected")
-    public void verifyLocationSelected(String expected){
+    public JobListPage verifyLocationSelected(String expected){
         assertEqualsText(filterByLocationDropdown.getAttribute("textContent").replace("×", "").trim(),expected,"Location text does not match expected value!");
+        return this;
     }
 
     @Step("Check Job Details are correct")

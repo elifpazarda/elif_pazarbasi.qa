@@ -25,22 +25,25 @@ public class JobApplicationPage extends BasePage {
     WebElement jobHeadline;
 
     @Step("Verify redirection to Lever application page")
-    public void verifyRedirectionToLeverUrl(){
+    public JobApplicationPage verifyRedirectionToLeverUrl(){
         String actualUrl = driver.getCurrentUrl();
         Assert.assertTrue(
                 actualUrl.startsWith(leverPageUrl), "Redirect URL mismatch. Expected: " + leverPageUrl + " but was: " + actualUrl);
+        return this;
     }
 
     @Step("Check job title matches")
-    public void checkJobTitleMatch(String expectedTitle){
+    public JobApplicationPage checkJobTitleMatch(String expectedTitle){
         String actualJobTitle = jobHeadline.findElement(By.tagName("h2")).getText().trim();
         assertEqualsText(actualJobTitle, expectedTitle, "Job Title does not match! Expected: '" + expectedTitle + "', but found: '" + actualJobTitle + "'");
+        return this;
     }
 
-    public void waitJobApplicationPageLoaded(){
+    public JobApplicationPage waitJobApplicationPageLoaded(){
         waitForElementsToBeVisible(applyForThisJobBtns);
         waitForElementToBeVisible(jobHeadline);
         screenshot();
+        return this;
     }
 
 

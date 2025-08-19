@@ -21,9 +21,6 @@ public class BaseTest{
         driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         driver.manage().timeouts().implicitlyWait(Duration.ZERO);
-
-        //driver.manage().window().maximize();
-        //driver.get(homePageUrl);
         homePage = new HomePage(driver);
         homePage.goToHomePage();
         homePage.checkHomePageAccessible();

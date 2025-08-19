@@ -23,20 +23,18 @@ public class InsiderQATest extends BaseTest{
 
         JobListPage jobListPage = qaTeamPage.goToJobListPage();
         Thread.sleep(5000);
-        jobListPage.waitJobListPageLoaded();
-        jobListPage.filterQaJobs();
-        jobListPage.verifyLocationSelected("Istanbul, Turkiye");
-        jobListPage.verifyDepartmentSelected("Quality Assurance");
+        jobListPage
+                .waitJobListPageLoaded()
+                .filterQaJobs()
+                .verifyLocationSelected("Istanbul, Turkiye")
+                .verifyDepartmentSelected("Quality Assurance");
         Thread.sleep(5000);
-
         jobListPage.verifyJobDetailPositionDepartmentLocation("Quality Assurance", "Quality Assurance", "Istanbul, Turkiye");
 
-        JobApplicationPage jobApplicationPage = jobListPage.goToJobApplicationPage("Software Quality Assurance Engineer");
-        jobApplicationPage.waitJobApplicationPageLoaded();
-
-        jobApplicationPage.verifyRedirectionToLeverUrl();
-        jobApplicationPage.checkJobTitleMatch("Software Quality Assurance Engineer");
+        jobListPage.goToJobApplicationPage("Software Quality Assurance Engineer")
+                .waitJobApplicationPageLoaded()
+                .verifyRedirectionToLeverUrl()
+                .checkJobTitleMatch("Software Quality Assurance Engineer");
     }
-
 }
 
